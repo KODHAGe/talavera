@@ -3,7 +3,7 @@
 let tileWidth = 250;
 let tileHeight = 250;
 let divide;
-let palette = [
+let palette_old = [
   "#FFE19D",
   "#FFAD9A",
   "#FF5F3B",
@@ -17,6 +17,22 @@ let palette = [
   "#4F74FC",
   "#03218F"
 ];
+
+let palette = [
+  "#FEE2A7",
+  "#ffad9a",
+  "#f44017",
+  "#ffbc1f",
+  "#A31E00",
+  "#3F1C12",
+  "#9dff94",
+  "#23e21e",
+  "#003926",
+  "#a8ffff",
+  "#13b6cb",
+  "#05333f"
+];
+
 let tileset = [];
 let tileamt;
 let ornamt;
@@ -39,8 +55,8 @@ function preload() {
 
 function setup() {
   tileamt = 42;
-  divide = 6;
-  ornamt = 24;
+  divide = 4;
+  ornamt = 16;
   createCanvas(windowWidth, windowWidth * (tileamt / divide / divide));
   rectMode(CENTER);
   angleMode(DEGREES);
@@ -98,7 +114,7 @@ function randomOrnament(n) {
       tileWidth / random(2.2, 64),
       int(random(12, 32)),
       randomColor(),
-      tileWidth / random(50, 400),
+      tileWidth / random(30, 120),
       int(random(0, 3)) > 1 ? randomColor() : false
     ]);
   }
@@ -112,7 +128,7 @@ function drawTile(bg, orno, reccc) {
 
   if (orno[0][5]) {
     stroke(orno[0][5]);
-    strokeWeight(tileWidth / 92);
+    strokeWeight(tileWidth / 64);
     rect(tileWidth / 2, tileHeight / 2, tileWidth - 16, tileHeight - 16);
     rect(tileWidth / 2, tileHeight / 2, tileWidth - 20, tileHeight - 20);
   }
